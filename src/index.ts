@@ -1,5 +1,5 @@
 /**
- * 
+ *
  * @param name - The name of the person to greet
  * @example
  * greet("World") // returns "Hello, World!"
@@ -7,4 +7,6 @@
  */
 export const greet = (name: string): string => {
   return `Greetings, ${name}!`;
-}
+};
+
+export * from "./types";
