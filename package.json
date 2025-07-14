@@ -2,9 +2,13 @@
   "name": "@nearlyapp/common",
   "version": "1.0.0",
   "description": "",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
   "types": "./dist/types/index.d.ts",
   "exports": {
     ".": {
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.mjs",
       "types": "./dist/types/index.d.ts"
     },
     "./schemas": {
