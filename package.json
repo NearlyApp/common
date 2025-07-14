@@ -1,0 +1,31 @@
+{
+  "name": "@nearlyapp/common",
+  "version": "0.0.0",
+  "description": "Common packages for Nearly App",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsup",
+    "test": "vitest"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NearlyApp/common.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NearlyApp/common/issues"
+  },
+  "homepage": "https://github.com/NearlyApp/common#readme",
+  "devDependencies": {
+    "install": "^0.13.0",
+    "npm": "^11.4.2",
+    "tsup": "^8.5.0",
+    "typescript": "^5.8.3",
+    "vitest": "^3.2.4"
+  }
+}
