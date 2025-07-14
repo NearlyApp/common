@@ -1,5 +1,5 @@
-import rolesSchema from '@drizzle/schemas/roles.schema';
-import usersSchema from '@drizzle/schemas/users.schema';
+import { rolesSchema } from './roles';
+import { usersSchema } from './users';
 import { pgTable, primaryKey, timestamp, uuid } from 'drizzle-orm/pg-core';
 
 const userRolesSchema = pgTable(

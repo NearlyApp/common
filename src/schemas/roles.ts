@@ -1,6 +1,6 @@
 import { index, pgTable, uuid, varchar } from 'drizzle-orm/pg-core';
 
-const rolesSchema = pgTable(
+export const rolesSchema = pgTable(
   'roles',
   {
     uuid: uuid('uuid').primaryKey().defaultRandom(),
@@ -10,4 +10,3 @@ const rolesSchema = pgTable(
   (table) => [index('roles_name_index').on(table.name)],
 );
 
-export default rolesSchema;
