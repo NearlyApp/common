@@ -1,2 +1,2 @@
-export { getDrizzleClient } from './drizzle';
+export { getDrizzleClient, getDrizzlePool } from './drizzle';
 export * from './types';

@@ -1,17 +1,18 @@
+import dotenv from 'dotenv';
 import { drizzle } from 'drizzle-orm/node-postgres';
 import { Pool } from 'pg';
-import dotenv from 'dotenv';
-import * as schema from "./schemas/index"
+import * as schema from './schemas/index';
 
 export type DrizzleClient = ReturnType<typeof drizzle>;
 
+let pool: Pool | null = null;
 let client: DrizzleClient | null = null;
 
 dotenv.config();
 
-export function getDrizzleClient(connectionString: string): DrizzleClient {
-  if (!client) {
-    const pool = new Pool({
+export function getDrizzlePool(): Pool {
+  if (!pool) {
+    pool = new Pool({
       host: process.env.PG_HOST,
       port: Number(process.env.PG_PORT),
       user: process.env.PG_USER,
@@ -19,7 +20,13 @@ export function getDrizzleClient(connectionString: string): DrizzleClient {
       database: process.env.DB_NAME,
       ssl: true,
     });
-    client = drizzle(pool, {
+  }
+  return pool;
+}
+
+export function getDrizzleClient(connectionString: string): DrizzleClient {
+  if (!client) {
+    client = drizzle(getDrizzlePool(), {
       schema,
     });
   }
