@@ -6,5 +6,5 @@
  * @returns A greeting message for the specified name
  */
 export const greet = (name: string): string => {
-  return `Hello, ${name}!`;
+  return `Greetings, ${name}!`;
 }
