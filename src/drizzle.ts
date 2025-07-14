@@ -24,7 +24,7 @@ export function getDrizzlePool(): Pool {
   return pool;
 }
 
-export function getDrizzleClient(connectionString: string): DrizzleClient {
+export function getDrizzleClient(): DrizzleClient {
   if (!client) {
     client = drizzle(getDrizzlePool(), {
       schema,
