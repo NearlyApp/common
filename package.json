@@ -1,26 +1,28 @@
 {
   "name": "@nearlyapp/common",
-  "version": "0.0.0",
-  "description": "Common packages for Nearly App",
-  "type": "module",
-  "main": "./dist/index.cjs",
-  "module": "./dist/index.mjs",
-  "types": "./dist/index.d.ts",
+  "version": "1.0.0",
+  "description": "",
+  "types": "./dist/types/index.d.ts",
   "exports": {
     ".": {
-      "import": {
-        "types": "./dist/index.d.ts",
-        "default": "./dist/index.mjs"
-      },
-      "require": {
-        "types": "./dist/index.d.ts",
-        "default": "./dist/index.cjs"
-      }
+      "types": "./dist/types/index.d.ts"
+    },
+    "./schemas": {
+      "require": "./dist/schemas/index.cjs",
+      "import": "./dist/schemas/index.mjs",
+      "types": "./dist/schemas/index.d.ts"
+    },
+    "./schemas/*": {
+      "require": "./dist/schemas/*.cjs",
+      "import": "./dist/schemas/*.mjs",
+      "types": "./dist/schemas/*.d.ts"
     }
   },
+  "files": [
+    "dist"
+  ],
   "scripts": {
-    "build": "tsup",
-    "test": "vitest"
+    "build": "tsup"
   },
   "publishConfig": {
     "registry": "https://npm.pkg.github.com"
@@ -29,17 +31,15 @@
     "type": "git",
     "url": "git+https://github.com/NearlyApp/common.git"
   },
+  "keywords": [],
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/NearlyApp/common/issues"
+  "dependencies": {
+    "drizzle-kit": "^0.31.4",
+    "drizzle-orm": "^0.44.2"
   },
-  "homepage": "https://github.com/NearlyApp/common#readme",
   "devDependencies": {
-    "install": "^0.13.0",
-    "npm": "^11.4.2",
     "tsup": "^8.5.0",
-    "typescript": "^5.8.3",
-    "vitest": "^3.2.4"
+    "typescript": "^5.8.3"
   }
 }
