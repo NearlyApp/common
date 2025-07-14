@@ -1,5 +1,3 @@
-name: Publish Package
-
 on:
   push:
     branches:
@@ -15,22 +13,24 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Setup Node.js
+      - name: Setup Node.js and authenticate
         uses: actions/setup-node@v3
         with:
           node-version: '18'
           registry-url: 'https://npm.pkg.github.com'
+          scope: '@nearlyapp'
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci
 
       - name: Build
         run: npm run build
-      
+
       - name: Run tests
         run: npm run test
 
       - name: Publish to GitHub Packages
         run: npm publish
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        # No need to redefine NODE_AUTH_TOKEN here because it's already set above
